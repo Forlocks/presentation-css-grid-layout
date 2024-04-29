@@ -1,0 +1,167 @@
+/**
+ * Layout helpers.
+ */
+
+// Stretch an element vertically based on available space
+.reveal .stretch,
+.reveal .r-stretch {
+	max-width: none;
+	max-height: none;
+}
+
+.reveal pre.stretch code,
+.reveal pre.r-stretch code {
+	height: 100%;
+	max-height: 100%;
+	box-sizing: border-box;
+}
+
+// Text that auto-fits its container
+.reveal .r-fit-text {
+	display: inline-block; // https://github.com/rikschennink/fitty#performance
+	white-space: nowrap;
+}
+
+// Stack multiple elements on top of each other
+.reveal .r-stack {
+	display: grid;
+	grid-template-rows: 100%;
+}
+
+.reveal .r-stack > * {
+	grid-area: 1/1;
+	margin: auto;
+}
+
+// Horizontal and vertical stacks
+.reveal .r-vstack,
+.reveal .r-hstack {
+	display: flex;
+
+	img, video {
+		min-width: 0;
+		min-height: 0;
+		object-fit: contain;
+	}
+}
+
+.reveal .r-vstack {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.reveal .r-hstack {
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+// Naming based on tailwindcss
+.reveal .items-stretch { align-items: stretch; }
+.reveal .items-start { align-items: flex-start; }
+.reveal .items-center { align-items: center; }
+.reveal .items-end { align-items: flex-end; }
+
+.reveal .justify-between { justify-content: space-between; }
+.reveal .justify-around { justify-content: space-around; }
+.reveal .justify-start { justify-content: flex-start; }
+.reveal .justify-center { justify-content: center; }
+.reveal .justify-end { justify-content: flex-end; }
+
+
+
+// Custom SCSS
+.grid-container {
+  display: grid;
+	grid-template-columns: repeat(4, 100px);
+	grid-template-rows: repeat(4, 50px);
+	gap: 2px;
+	width: 406px;
+  height: 206px;
+	border: 2px solid rgb(0, 0, 0);
+}
+
+.grid-element-1 {
+	display: block;
+	background-color: rgb(82, 0, 64);
+	color: rgb(255, 255, 255);
+}
+
+.grid-element-2 {
+	display: block;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	background-color: rgb(0, 142, 207);
+	color: rgb(255, 255, 255);
+}
+
+.grid-element-4 {
+	display: block;
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 5;
+	background-color: rgb(255, 136, 0);
+	color: rgb(255, 255, 255);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(4, 120px);
+	grid-template-rows: repeat(4, 120px);
+	grid-gap: 10px;
+}
+
+.image {
+	height: 120px;
+	border-radius: 10px;
+	background-size: cover;
+	background-position: center;
+	transition: transform 0.5s ease;
+}
+
+.image:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+	filter: brightness(1.2);
+	z-index: 1;
+}
+
+.image:not(:hover) {
+	filter: brightness(0.5);
+}
+
+.current-image {
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	border-radius: 10px;
+	background-size: cover;
+	background-position: center;
+	transition: transform 0.5s ease;
+}
+
+.example {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
